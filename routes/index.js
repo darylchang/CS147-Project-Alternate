@@ -32,12 +32,15 @@ exports.view = function(req, res){
           halls[i].menu = menu;
       }
 
+      var restHalls = halls.slice(2);
       halls = halls.slice(0, 2);
+      
       if (!username){
         console.log("NO USERNAME");
         res.render('index', {
                        'lastPage': lastPage,
                        'halls': halls,
+                       'restHalls': restHalls,
                        'username': req.session.username,
                        'isSearch': false,
                        'favorites': favoritesArr
@@ -55,6 +58,7 @@ exports.view = function(req, res){
           res.render('index', {
                        'lastPage': lastPage,
                        'halls': halls,
+                       'restHalls': restHalls,
                        'username': req.session.username,
                        'isSearch': false,
                        'favorites': favoritesArr
@@ -104,9 +108,11 @@ exports.view = function(req, res){
                         var menu = halls[i].menu;
                         halls[i].menu = menu;
                     }
+                    halls = halls.slice(0,2);
                     res.render('index', {
                        'lastPage': lastPage,
                        'halls': halls,
+                       'restHalls': restHalls,
                        'username': req.session.username,
                        'isSearch': false,
                        'favorites': favoritesArr

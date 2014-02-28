@@ -99,6 +99,50 @@
 	</a>
     {{/each}}
 
+    <div class="panel" id="showMore"><div class="panel-header">Show more halls</div></div>
+    <div id="restHalls">
+        {{#each restHalls}}
+            <a href="/dining/{{name}}">
+                <div class="panel">
+                    <div class="panel-header bg-darkRed fg-white">
+                        <h3>{{name}} Dining</h3>
+                    </div>
+
+                    <div class="panel-content homePageDiningPanel">
+                        <div class="homePageMenuPanel">
+                        <table><tr>
+                        {{#each menu}}
+                            <td>
+                            <a href="/food/{{../name}}/{{name}}">
+                                <div class="tile foodTile homePageMenuPanelItem">
+                                    <div class="bg-dark fg-white foodTitle
+                                    asdadsf">{{name}}</div>
+                                    <img class="foodImage" id="{{../name}}_{{name}}" src="/images/{{name}}.jpg">
+                                    <div id="brandButtonPanel" class="brand button-set">
+                                        <button style="float:right;padding:0px;margin:0px;"class="thumbs-down" type="button"><i class="fg-red icon-thumbs-down">{{downvotes}}</i></button>
+                                        <button style="float:right;padding:0px;margin:0px;" class="thumbs-up" type="button"><i class="fg-green icon-thumbs-up">{{upvotes}}</i></button>
+                                    </div>
+                                </div>
+                            </a>
+                            </td>
+                        {{/each}}
+                        <tr></table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </a>
+        {{/each}}
+    </div>
 </div>
+<script>
+    $('#showMore').click(showAll);
+
+    function showAll(e){
+        $('#showMore').hide(500);
+        $('#restHalls').show(500);
+    }
+</script>
 </body>
 </html>

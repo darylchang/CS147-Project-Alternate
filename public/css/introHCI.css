@@ -142,3 +142,7 @@ body {
 	clear: left;
 	float: left;
 }
+
+#restHalls {
+	display: none;
+}
